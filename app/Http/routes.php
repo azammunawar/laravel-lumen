@@ -1,6 +1,8 @@
 <?php
+
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -15,12 +17,11 @@ use Illuminate\Http\Request;
 $app->get('/', function () use ($app) {
     return $app->welcome();
 });
+
 $app->get('/tasks', function (Request $request) use ($app) {
-
-    $results =  ['asdfaf','asdfasf','asdfasf','werwrw'];
-
-
-    return $results;
+    $tasks = DB::table('tasks')->get();
+    $results = ['asdfaf', 'asdfasf', 'asdfasf', 'werwrw'];
+    return $tasks;
     //return $request->headers->get('name');
 });
 
