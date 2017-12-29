@@ -2,7 +2,7 @@
 
 require_once __DIR__.'/../vendor/autoload.php';
 
-// Dotenv::load(__DIR__.'/../');
+ Dotenv::load(__DIR__.'/../');
 
 /*
 |--------------------------------------------------------------------------
@@ -56,16 +56,16 @@ $app->singleton(
 */
 
 // $app->middleware([
-//     // Illuminate\Cookie\Middleware\EncryptCookies::class,
-//     // Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
-//     // Illuminate\Session\Middleware\StartSession::class,
-//     // Illuminate\View\Middleware\ShareErrorsFromSession::class,
-//     // Laravel\Lumen\Http\Middleware\VerifyCsrfToken::class,
+//      Illuminate\Cookie\Middleware\EncryptCookies::class,
+//      Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+//      Illuminate\Session\Middleware\StartSession::class,
+//      Illuminate\View\Middleware\ShareErrorsFromSession::class,
+//      Laravel\Lumen\Http\Middleware\VerifyCsrfToken::class,
 // ]);
 
-// $app->routeMiddleware([
-
-// ]);
+ $app->routeMiddleware([
+     'Auth' => 'App\Http\Middleware\AuthMiddleware',
+ ]);
 
 /*
 |--------------------------------------------------------------------------
