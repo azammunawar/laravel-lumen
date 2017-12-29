@@ -17,17 +17,18 @@ class AuthMiddleware
     {
         if ($request->header('Authorization')) {
             $key = explode(' ',$request->header('Authorization'));
-            $user = DB::table('users')->where('remember_token', $key[0]);
+            $user = DB::table('users')->where('remember_token', $key[0])->first();
             if(!empty($user)){
                 //$request->request->add(['userid' => '123']);
                 return $next($request);
 
             }
+            else {
+                return 'Authorization';
+            }
 
         }
-        else {
-            return $request->header('Authorization');
-        }
+
 
 
 

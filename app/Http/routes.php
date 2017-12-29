@@ -19,6 +19,7 @@ $app->get('/', function () use ($app) {
 
 $app->post('/login', function (Request $request) use ($app) {
     $user = DB::table('users')->where('email', $request->input('email'))->first();
+    dd($user);
     if (Hash::check($request->input('password'), $user->password)){
         $api_key = str_random(20);
         DB::table('users')->where('email', $request->input('email'))->update(['remember_token' => $api_key]);
