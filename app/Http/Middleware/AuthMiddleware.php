@@ -20,11 +20,15 @@ class AuthMiddleware
             $user = DB::table('users')->where('remember_token', $key[0])->first();
             if(!empty($user)){
                 //$request->request->add(['userid' => '123']);
-                return $next($request);
+                return $next($request)
+                    ->header('Access-Control-Allow-Origin', '*')
+                    ->header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+
+                //return $next($request);
 
             }
             else {
-                return 'Authorization';
+                return response()->json(['Authorization']);
             }
 
         }
