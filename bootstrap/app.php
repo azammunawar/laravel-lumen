@@ -65,7 +65,7 @@ $app->singleton(
 
  $app->routeMiddleware([
      'Auth' => 'App\Http\Middleware\AuthMiddleware',
-     'Cors' => 'App\Http\Middleware\CorsMiddleware',
+     'CorsMiddleware' => 'App\Http\Middleware\CorsMiddleware',
  ]);
 
 /*

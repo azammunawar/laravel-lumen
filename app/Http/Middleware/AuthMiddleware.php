@@ -28,10 +28,14 @@ class AuthMiddleware
 
             }
             else {
-                return response()->json(['Authorization']);
+                return response()->json(['Authorization failed']);
             }
 
+
+
+
         }
+        return response()->json(['Api Key not Found']);
 
 
 
